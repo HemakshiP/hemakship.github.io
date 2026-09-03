@@ -493,16 +493,117 @@
 
             <!-- Tab Buttons -->
             <div class="case-study-tabs">
-                <button class="case-study-tab-btn active" onclick="showCaseStudy(0)">GRM</button>
-                <button class="case-study-tab-btn" onclick="showCaseStudy(1)">QBR</button>
-                <button class="case-study-tab-btn" onclick="showCaseStudy(2)">CHM</button>
-                <button class="case-study-tab-btn" onclick="showCaseStudy(3)">ECR</button>
-                <button class="case-study-tab-btn" onclick="showCaseStudy(4)">Wireframe</button>
-                <button class="case-study-tab-btn" onclick="showCaseStudy(5)">Store Leadership</button>
+                <button class="case-study-tab-btn active" onclick="showCaseStudy(0)">Depot Staffing</button>
+                <button class="case-study-tab-btn" onclick="showCaseStudy(1)">Store Leadership</button>
+                <button class="case-study-tab-btn" onclick="showCaseStudy(2)">GRM</button>
+                <button class="case-study-tab-btn" onclick="showCaseStudy(3)">QBR</button>
+                <button class="case-study-tab-btn" onclick="showCaseStudy(4)">CHM</button>
+                <button class="case-study-tab-btn" onclick="showCaseStudy(5)">ECR</button>
+                <button class="case-study-tab-btn" onclick="showCaseStudy(6)">Wireframe</button>
             </div>
 
             <!-- Case Study 1 Grid -->
             <div class="case-study-grid active" id="case-study-0">
+                <!-- Case Study 7 -->
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <h3>Depot Workforce Staffing Intelligence Dashboard</h3>
+                        <p>Automated Operations Manager Staffing Tracker Across 117 Depot Locations</p>
+                        <div class="tags">
+                            <span class="tag">Automation</span>
+                            <span class="tag">Data Engineering</span>
+                        </div>
+                    </div>
+                    <div class="case-study-content">
+                        <h4>Challenge</h4>
+                        <p>Walmart is aggressively expanding its Depot fulfillment store network through FY27–FY28. Each new Depot requires an Operations Manager in place before its ceremony (opening) date to lead store setup, merchandise planning, and team hiring. There was no single source of truth for TA and Operations leadership to see which depots had an OM assigned, how that OM got there, which upcoming stores were at risk of opening without one, or how many Team Leads were in place under each OM.</p>
+
+                        <img src="portfolio-assets/depot-dashboard.png" alt="Depot Operations Manager Tracker Dashboard" class="case-study-screenshot">
+
+                        <h4>Approach</h4>
+                        <ul>
+                            <li><strong>Data Engineering:</strong> Connected 4 Workday HR BigQuery tables to extract staffing data across 117 depot stores</li>
+                            <li><strong>Incumbent Resolution Logic:</strong> Built multi-source resolution: direct requisition hire, lateral/promotion movement, connected-store fallback, and stale-record validation</li>
+                            <li><strong>Data Quality Layer:</strong> Designed a global PPE validation layer to detect associates who had moved roles or stores, flagging incorrect incumbents automatically</li>
+                            <li><strong>Store Classification:</strong> Implemented an FY27/FY28 store classification engine using construction completion and ceremony dates</li>
+                            <li><strong>Outputs:</strong> Built an interactive HTML executive dashboard (filterable by wave, OM status, hire type) plus a 4-tab Excel report, published to Walmart's internal knowledge platform for org-wide access</li>
+                            <li><strong>Automation:</strong> Built and deployed a weekly automated refresh pipeline, eliminating manual data pulls, now ready to share with the team</li>
+                        </ul>
+
+                        <h4>Impact</h4>
+                        <ul>
+                            <li><strong>Real-Time Staffing Visibility:</strong> Gave leadership real-time visibility into staffing status across all 117 depots, replacing a process with no single source of truth</li>
+                            <li><strong>Proactive Gap Identification:</strong> Automatically flags upcoming stores at risk of opening without an assigned Operations Manager, before the ceremony date</li>
+                            <li><strong>Hire Source Transparency:</strong> Distinguishes hire source (requisition, lateral, promotion, connected-store fallback) for full transparency into how each OM got there</li>
+                            <li><strong>Novel Connected-Store Intelligence:</strong> Introduced connected-store logic surfacing OMs with operational responsibility over a depot, a gap no prior system captured</li>
+                            <li><strong>Reduced Manual Effort:</strong> Eliminates weekly ad hoc BigQuery queries and manual spreadsheet reconciliation by TA analysts</li>
+                        </ul>
+
+                        <div class="case-study-footer">
+                            <p><strong>Tools:</strong></p>
+                            <div class="tools">
+                                <span class="tool">BigQuery</span>
+                                <span class="tool">Workday</span>
+                                <span class="tool">SQL</span>
+                                <span class="tool">HTML/JS</span>
+                                <span class="tool">Excel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Case Study 2 Grid -->
+            <div class="case-study-grid" id="case-study-1">
+                <!-- Case Study 6 -->
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <h3>Store Leadership Hiring Landscape Analysis</h3>
+                        <p>Automated BigQuery Pipeline & Data-Driven Case for Store Manager Intern Program</p>
+                        <div class="tags">
+                            <span class="tag">Executive Influence</span>
+                            <span class="tag">Data Quality & Automation</span>
+                        </div>
+                    </div>
+                    <div class="case-study-content">
+                        <h4>Challenge</h4>
+                        <p>Walmart U.S.'s store leadership pipeline (Coach, ESM, Store Manager) showed signs of structural collapse, but no single report existed anywhere in the org to prove it. The data needed to answer the question lived across 3 BigQuery projects and 6+ disconnected Workday/TA tables, with conflicting requisition counts between systems — a 469-req discrepancy between WD_REQUISITIONS and VW_REQ_PIPELINE alone. A stakeholder needed a defensible, source-cited business case for a Store Manager Intern program for Dave Guggina, Walmart U.S. CEO.</p>
+
+                        <img src="portfolio-assets/store-leadership-report.png" alt="Store Leadership Hiring Landscape Analysis" class="case-study-screenshot">
+
+                        <h4>Approach</h4>
+                        <ul>
+                            <li><strong>Multi-Source Data Pipeline:</strong> Connected 3 BigQuery projects and 6+ HR/TA tables (requisitions, applications, PPE snapshots, movement history, job taxonomy) into a unified Coach → ESM → Store Manager view that didn't exist as a single report anywhere in the org</li>
+                            <li><strong>Role Taxonomy Resolution:</strong> Reverse-engineered and validated 35+ job codes across 4 role categories, cross-checking two independent systems to identify and reconcile the 469-req discrepancy</li>
+                            <li><strong>Automated Metrics Engine:</strong> Built re-runnable Python/SQL queries covering open-req aging, YoY trending, fill rate, time-to-fill, internal vs. external hire ratio, multi-year attrition (FY23–FY26), and Coach→ESM→SM promotion flow — refreshed 3 times in a month, each in minutes instead of a manual re-pull</li>
+                            <li><strong>Data Quality Validation:</strong> Caught and corrected 4 data integrity issues before they reached leadership — distinguishing company attrition from role turnover (a 3x difference), catching a one-time job-code reclassification masquerading as +1,676% YoY headcount growth, unifying a renamed role ("Store Lead" → "ESM") that made the pipeline look 95% collapsed when the true decline was ~30%, and ruling out store-to-store transfers as false vacancy demand</li>
+                            <li><strong>Automated Reporting Outputs:</strong> Generated a Markdown analysis document, a Word document built from raw OOXML via a custom Python docx writer, and an interactive Walmart-branded Chart.js dashboard with tabbed Summary &amp; Insights and Deep Dive views</li>
+                        </ul>
+
+                        <h4>Impact</h4>
+                        <ul>
+                            <li><strong>Business Case Foundation:</strong> Directly supported a Store Manager Intern program proposal to VP/L2-level Home Office leadership, quantifying ~6,474 annual store leadership hires needed against a collapsing internal pipeline</li>
+                            <li><strong>Quantified Urgency:</strong> 77–80% YoY drop in the entry-level trainee pipeline feeding the Coach role (4,386 reqs in FY26 to 856 in FY27); internal promotion pipeline covering only 44.5% of Store Manager vacancy demand in FY26, down from 97.8% in FY23</li>
+                            <li><strong>Credibility Under Scrutiny:</strong> Store Manager hiring is 99.7% internally sourced, proving external recruiting alone can't close the gap — every number traceable back to its BigQuery table and calculation method, ready to survive stakeholder scrutiny</li>
+                        </ul>
+
+                        <div class="case-study-footer">
+                            <p><strong>Tools:</strong></p>
+                            <div class="tools">
+                                <span class="tool">BigQuery</span>
+                                <span class="tool">Python</span>
+                                <span class="tool">SQL</span>
+                                <span class="tool">Chart.js</span>
+                                <span class="tool">Executive Reporting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 3 Grid -->
+            <div class="case-study-grid" id="case-study-2">
                 <!-- Case Study 1 -->
                 <div class="case-study-card">
                     <div class="case-study-header">
@@ -547,8 +648,10 @@
                 </div>
             </div>
 
-            <!-- Case Study 2 Grid -->
-            <div class="case-study-grid" id="case-study-1">
+            
+
+            <!-- Case Study 4 Grid -->
+            <div class="case-study-grid" id="case-study-3">
                 <!-- Case Study 2 -->
                 <div class="case-study-card">
                     <div class="case-study-header">
@@ -595,8 +698,10 @@
                 </div>
             </div>
 
-            <!-- Case Study 3 Grid -->
-            <div class="case-study-grid" id="case-study-2">
+            
+
+            <!-- Case Study 5 Grid -->
+            <div class="case-study-grid" id="case-study-4">
                 <!-- Case Study 3 -->
                 <div class="case-study-card">
                     <div class="case-study-header">
@@ -644,8 +749,10 @@
                 </div>
             </div>
 
-            <!-- Case Study 4 Grid -->
-            <div class="case-study-grid" id="case-study-3">
+            
+
+            <!-- Case Study 6 Grid -->
+            <div class="case-study-grid" id="case-study-5">
                 <!-- Case Study 4 -->
                 <div class="case-study-card">
                     <div class="case-study-header">
@@ -693,8 +800,10 @@
                 </div>
             </div>
 
-            <!-- Case Study 5 Grid -->
-            <div class="case-study-grid" id="case-study-4">
+            
+
+            <!-- Case Study 7 Grid -->
+            <div class="case-study-grid" id="case-study-6">
                 <!-- Case Study 5 -->
                 <div class="case-study-card">
                     <div class="case-study-header">
@@ -739,51 +848,7 @@
                 </div>
             </div>
 
-            <!-- Case Study 6 Grid -->
-            <div class="case-study-grid" id="case-study-5">
-                <!-- Case Study 6 -->
-                <div class="case-study-card">
-                    <div class="case-study-header">
-                        <h3>Store Leadership Hiring Landscape Analysis</h3>
-                        <p>Data-Driven Case for Store Manager Intern Program</p>
-                        <div class="tags">
-                            <span class="tag">Executive Influence</span>
-                            <span class="tag">Strategic Analysis</span>
-                        </div>
                     </div>
-                    <div class="case-study-content">
-                        <h4>Challenge</h4>
-                        <p>Walmart U.S.'s store leadership pipeline (Coach, ESM, Store Manager) showed signs of structural collapse; the trainee pipeline, the entry point that feeds these roles, dropped 80.5% year-over-year, while Coach demand grew 19.3% in the same window with no feeder pipeline to replace it. A stakeholder is building a business case for a Store Manager Intern program for Dave Guggina, Walmart U.S. CEO.</p>
-
-                        <img src="portfolio-assets/store-leadership-report.png" alt="Store Leadership Hiring Landscape Analysis" class="case-study-screenshot">
-
-                        <h4>Approach</h4>
-                        <ul>
-                            <li><strong>Trend Analysis:</strong> Analyzed FY22–FY27 hiring trends across Coach, ESM, and Store Manager roles to quantify pipeline health</li>
-                            <li><strong>Root Cause Identification:</strong> Identified the trainee pipeline collapse (4,386 reqs in FY26 to 856 in FY27) as the root structural gap</li>
-                            <li><strong>Downstream Impact Quantification:</strong> Quantified that Store Manager hiring is 99.7% internal, yet the pipeline feeding those promotions covered only 44.5% of fill demand in FY26 (down from 97.8% in FY23)</li>
-                            <li><strong>Executive Narrative:</strong> Built the summary insights view and contributed to the proposal materials distilling the data into a clear narrative for executive-level review</li>
-                        </ul>
-
-                        <h4>Impact</h4>
-                        <ul>
-                            <li><strong>Business Case Foundation:</strong> Providing the data foundation and proposal materials for a stakeholder's business case for a Store Manager Intern program for Dave Guggina, Walmart U.S. CEO</li>
-                            <li><strong>Quantified Urgency:</strong> At current attrition, Coach roles alone require ~3,400 new hires per year just to hold position, with 132 open Coach reqs currently showing zero candidates in the pipeline</li>
-                            <li><strong>Executive-Ready Storytelling:</strong> Translated a complex, multi-role pipeline problem into a clear, executive-ready story supporting investment in entry-level talent programs</li>
-                        </ul>
-
-                        <div class="case-study-footer">
-                            <p><strong>Tools:</strong></p>
-                            <div class="tools">
-                                <span class="tool">SQL</span>
-                                <span class="tool">Power BI</span>
-                                <span class="tool">Executive Reporting</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 
     <script>
@@ -866,7 +931,7 @@
                             <strong>Challenge:</strong> Organization needed location data to support relocation policy development and implementation.
                         </p>
                         <p style="color: #555; margin-bottom: 0.8rem;">
-                            <strong>Analysis:</strong> Provided confidential associate location reporting for policy planning and decision-making.
+                            <strong>Analysis:</strong> Analyzed workforce distribution data to support relocation policy planning and decision-making.
                         </p>
                         <p style="color: #555;">
                             <strong>Impact:</strong> Strategic location intelligence informed relocation policy creation and workforce distribution planning.
